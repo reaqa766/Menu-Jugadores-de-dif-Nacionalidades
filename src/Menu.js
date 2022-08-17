@@ -8,8 +8,15 @@ const Menu = ({ items, players }) => {
       </div>
       <div className="section-center">
         {players.map((menuCountries, index) => {
-          const { id, firstName, lastName, birthDate, currentAge } =
-            menuCountries;
+          const {
+            id,
+            firstName,
+            lastName,
+            birthDate,
+            currentAge,
+            primaryPosition,
+            birthCity,
+          } = menuCountries;
           return (
             <article key={id} className="menu-item">
               <img
@@ -22,17 +29,27 @@ const Menu = ({ items, players }) => {
               <div className="item-info">
                 <header>
                   <h4>
-                    {index + 1} - {firstName} {lastName}
+                    {firstName} {lastName}
                   </h4>
                 </header>
+                <div className="underline-menu"></div>
+
                 {/* <div> */}
                 <p className="price">
-                  <span className="datos-players">FNac:</span> {birthDate}
+                  <span className="datos-players">Posicion:</span>{" "}
+                  {primaryPosition.name}
                 </p>
+                <p className="price">
+                  <span className="datos-players">Lugar Nac:</span> {birthCity}
+                </p>
+                {/* <p className="price">
+                  <span className="datos-players">Fecha Nac:</span> {birthDate}
+                </p> */}
                 {/* </div> */}
                 <p className="price">
                   <span className="datos-players">Edad:</span> {currentAge}
                 </p>
+
                 {/* <p className="item-text">Edad: {currentAge}</p> */}
               </div>
             </article>
